@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../lib/browser/nns.min.js" charset="utf-8"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+      crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    Input a NNS domain to resolve:
+    <br/>
+    <input id="name"/>
+    <button id="submit">Resolve</button>
+    <div id="address"></div>
+
+    <script type="text/javascript">
+      const inputEle = document.getElementById('name');
+      const submitEle = document.getElementById('submit');
+      const addressEle = document.getElementById('address');
+
+      submitEle.onclick = e => {
+        NeoNS.resolveDomain(inputEle.value)
+        .then(address => {
+          addressEle.textContent = address;
+        })
+        .catch(err => {
+          addressEle.textContent = 'Domain name not found.';
+        })
+      }
+    </script>
+  </body>
+</html>
