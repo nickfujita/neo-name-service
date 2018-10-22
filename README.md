@@ -26,8 +26,6 @@ yarn add neo-ns
 var NeoNS = require('neo-ns');
 
 import NeoNS from 'neo-ns';
-
-import { resolveDomain } from 'neo-ns';
 ```
 
 ## Example
